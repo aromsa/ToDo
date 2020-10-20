@@ -12,7 +12,7 @@ describe('Header Component', () => {
 
   let component
   beforeEach(() => {
-    component = setUp()
+    component = setUp()  
   })
   
   it('Should render without errors', () => {
