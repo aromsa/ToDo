@@ -1,15 +1,17 @@
 import React from 'react';
 import Header from './components/header'
-import Headline from './components/headline'
+// import Headline from './components/headline'
+import Login from './components/login'
 import './app.scss'
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <section className="main">
+      <Login/>
+      {/* <section className="main">
         <Headline header="Posts" desc="Click the button to render posts."/>
-      </section>
+      </section> */}
     </div>
   );
 }
