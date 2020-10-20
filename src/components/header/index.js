@@ -4,10 +4,10 @@ import Logo from './../../assets/graphics/pando_updated.png'
 
 const Header = (props) => {
   return (
-    <header>
+    <header data-test="headerComponent">
       <div className="container">
         <div className="logo">
-          <img src={Logo} alt="Logo"/>
+          <img data-test="logoIMG" src={Logo} alt="Logo"/>
         </div>
       </div>
     </header>
