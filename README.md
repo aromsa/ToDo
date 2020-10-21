@@ -74,3 +74,4 @@ run
 yarn add @reduxjs/toolkit
 yarn add react-redux
 yarn add redux-thunk
+yarn add react-router-dom
