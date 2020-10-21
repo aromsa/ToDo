@@ -67,3 +67,10 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 # ToDo
+
+//
+
+run 
+yarn add @reduxjs/toolkit
+yarn add react-redux
+yarn add redux-thunk

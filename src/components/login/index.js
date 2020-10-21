@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import { handleLogin } from "./../../redux/action";
 import './styles.scss'
 
 const Login = (props) => {
@@ -14,51 +16,56 @@ const Login = (props) => {
   }
   
 
-  const login = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault()
     let userObj = {email: email, password: password}
-    console.log(userObj)
-    // props.loginUser(userObj)
+    props.handleLogin(userObj)
     setEmail('')
     setPassword('')
   }
 
-    return(
-      <div className="login">
-        <form className="form-body" onSubmit={login}>
-      <h1>Welcome!</h1>
-      <p>Please Login</p>
-      <label>
-        Email
-        <input
+  return(
+    <div className="login">
+      <form className="form-body" onSubmit={handleLogin}>
+
+        <h1>Welcome!</h1>
+        <p>Please Login</p>
+
+        <label>
+          Email
+          <input
           onChange={emailInputHandler}
           value={email}
           name="email"
           placeholder="email address"
           type="text"
           required />
-      </label>
+        </label>
 
-      <label>
-        Password
-        <input
+        <label>
+          Password
+          <input
           onChange={passwordInputHandler}
           name="password"
           value={password}
           placeholder="********"
           type="password"
           required />
-      </label>
+        </label>
 
-      <button>Login</button>
-      <br></br>
+        <button>Login</button>
+        <br></br>
 
-      <p className="actions">Reset your password</p>
-      <p className="actions">Create an account</p>
+        <p className="actions">Reset your password</p>
+        <p className="actions">Create an account</p>
 
-    </form>
-      </div>
-    )
+      </form>
+    </div>
+  )
 }
 
-export default Login
+const mdp = (dispatch) => {
+  return { handleLogin: (userObj) => dispatch(handleLogin(userObj))}
+}
+
+export default connect(null, mdp)(Login)
