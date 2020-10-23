@@ -38,7 +38,7 @@ const Login = (props) => {
     if (localStorage.token){
       history.push('/todo')
       props.getTodos()
-    } else return
+    } else { history.push('/')}
   }
 
   return(

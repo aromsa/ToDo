@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
 import { newTodo } from "./../../redux/action";
+
 // import './styles.scss'
 
 const Form = (props) => {
@@ -15,8 +16,15 @@ const Form = (props) => {
     e.preventDefault()
     let newTodo = {description: input}
     props.newTodo(newTodo)
-    // console.log(newTodo)
     setInput('')
+  }
+
+  const handleLogout = (e) => {
+    localStorage.clear()
+    if (!localStorage.token){
+      window.history.pushState({pathname: '/'}, "", '/')
+      window.location.reload()
+    }
   }
 
   return(
@@ -32,10 +40,7 @@ const Form = (props) => {
           <option value="incomplete">Incomplete</option>
         </select>
       </div>
-      {/* <button className="todo-button" type="submit">
-        <i className="fas fa-plus-square"></i>
-      </button> */}
-      <button className="logout-button" type="button">Logout</button>
+      <button onClick={handleLogout} className="logout-button" type="button">Logout</button>
     </form>
   )
 }
