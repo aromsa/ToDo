@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux'
-import { handleLogin, getTodos } from "./../../redux/action";
+import { handleLogin } from "./../../redux/action";
 import { withRouter } from 'react-router-dom'
 import './styles.scss'
 
@@ -30,14 +30,9 @@ const Login = (props) => {
     handleResponse()
   }, [props.user])
 
-  // useEffect(() => {
-  //   props.getTodos()
-  // }, [])
-
   const handleResponse = () => {
     if (localStorage.token){
       history.push('/todo')
-      props.getTodos()
     } else { history.push('/')}
   }
 
@@ -88,7 +83,7 @@ function msp(state) {
 }
 
 const mdp = (dispatch) => {
-  return { handleLogin: (userObj) => dispatch(handleLogin(userObj)), getTodos: () => dispatch(getTodos())}
+  return { handleLogin: (userObj) => dispatch(handleLogin(userObj))}
 }
 
 export default connect(msp, mdp)(withRouter(Login))

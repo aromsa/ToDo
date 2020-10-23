@@ -16,18 +16,18 @@ const Todo = (props) => {
   const todo = props.todo
     return (
       <div key={todo._id} className="todo">
-      <li key={todo._id} className={`todo-item ${todo.completed ? "completed" : ''}`}>{todo.description}</li>
-      <button className="complete-btn" onClick={() => completedHandler(todo._id)}>
-        <i className="fas fa-check"></i>
-      </button>
-      <button className="trash-btn" onClick={() => deleteHandler(todo._id)}>
-        <i className="fas fa-trash"></i>
-      </button>
-  </div>)
+        <li key={todo._id} className={`todo-item ${todo.completed ? "completed" : ''}`}>{todo.description}</li>
+        <button className="complete-btn" onClick={() => completedHandler(todo._id)}>
+          <i className="fas fa-check"></i>
+        </button>
+        <button className="trash-btn" onClick={() => deleteHandler(todo._id)}>
+          <i className="fas fa-trash"></i>
+        </button>
+      </div>)
 }
 
 function msp(state) {
-  return { todos: state.todos, todoFilter: state.todoFilter, filteredTodos: state.filteredTodos }
+  return { todos: state.todos }
 }
 
 const mdp = (dispatch) => {

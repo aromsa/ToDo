@@ -8,12 +8,7 @@ const setUp = (props={}) => {
   return component
 }
 
-// const findByTestAtrr = (component, attr) => {
-//   const wrapper = component.find(`[data-test='${attr}']`)
-//   return wrapper
-// }
-
-describe('Login Component', () => {
+describe('Form Component', () => {
 
   let component
   beforeEach(() => {
@@ -24,9 +19,5 @@ describe('Login Component', () => {
     const container = findByTestAtrr(component, 'formComponent')
     expect(container.length).toBe(1)
   })
-
-  // it('Should render a logo', () => {
-  //   const logo = findByTestAtrr(component, 'logoIMG')
-  //   expect(logo.length).toBe(1)
-  // })
+  
 })

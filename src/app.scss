@@ -1,20 +1,3 @@
-// body {
-//   font-family: 'Raleway', sans-serif;
-//   font-size: 18px;
-//   line-height: 22px;
-//   color: #121212;
-//   background: #e1e2e7;
-//   margin: 0;
-//   padding: 0;
-// }
-
-// .main {
-//   width: 100%;
-//   max-width: 980px;
-//   margin: 20px auto 80px;
-//   padding: 0 10px
-// }
-
 * {
   margin: 0;
   padding: 0;
@@ -122,19 +105,11 @@ form button:hover {
   opacity: 0.5;
 }
 
-/*CUSTOM SELECTOR */
+/* Select */
 select {
-  // -webkit-appearance: none;
-  // -moz-appearance: none;
-  // -ms-appearance: none;
-  // appearance: none;
-  // outline: 0;
-  // box-shadow: none;
   border: 0 !important;
-  // background-image: none;
 }
 
-/* Custom Select */
 .select {
   margin: 1rem;
   position: relative;
@@ -157,9 +132,3 @@ select {
   cursor: pointer;
   pointer-events: none;
 }
-/* Transition */
-/*
-.select:hover::after {
-  transform: scale(1.5);
-}
-*/

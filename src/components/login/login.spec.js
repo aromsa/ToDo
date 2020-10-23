@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Login from './index';
-// import { findByTestAtrr } from './../../utils';
+import { findByTestAtrr } from './../../utils';
 
 const setUp = (props={}) => {
   const component = shallow(<Login {...props} />)
@@ -24,9 +24,4 @@ describe('Login Component', () => {
     const container = findByTestAtrr(component, 'loginComponent')
     expect(container.length).toBe(1)
   })
-
-  // it('Should render a logo', () => {
-  //   const logo = findByTestAtrr(component, 'logoIMG')
-  //   expect(logo.length).toBe(1)
-  // })
 })
