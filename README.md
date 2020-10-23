@@ -28,7 +28,7 @@ Once you login, you can start tracking all of your todos!
 
 Given more time I would like to complete the following:
 
-* Add functionality to "Reset your password" and "Create an account" on login page.
+* Add functionality to "Reset your password" and "Create an account" on login page
 * Reverse the order of todos
 * Implement functional TDD using Jest and Enzyme
 * More client-side validation
