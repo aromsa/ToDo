@@ -27,6 +27,11 @@ const Form = (props) => {
     }
   }
 
+  const filterHandler = (e) => {
+    props.updateFilter(e.target.value)
+    // props.filterTodos(e.target.value)
+  }
+
   return(
     <form className="input-form" onSubmit={addTodo}>
       <input type="text" className="todo-input" onChange={inputHandler} value={input}/>
@@ -34,7 +39,7 @@ const Form = (props) => {
         <i className="fas fa-plus-square"></i>
       </button>
       <div className="select">
-        <select name="todos" className="filter-todo">
+        <select onChange={filterHandler} name="todos" className="filter-todo">
           <option value="all">All</option>
           <option value="complete">Complete</option>
           <option value="incomplete">Incomplete</option>
@@ -46,7 +51,10 @@ const Form = (props) => {
 }
 
 const mdp = (dispatch) => {
-  return { newTodo: (todo) => dispatch(newTodo(todo))}
+  return { 
+    newTodo: (todo) => dispatch(newTodo(todo)), 
+    filterTodos: (filter) => dispatch({type: "filterTodos", payload: filter}), 
+    updateFilter: (filter) => dispatch({type: "updateFilter", payload: filter})}
 }
 
 export default connect(null, mdp)(Form)

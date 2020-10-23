@@ -45,7 +45,9 @@ const Login = (props) => {
     <div className="login">
       <form className="form-body" onSubmit={handleLogin}>
 
-        <h1>Welcome!</h1>
+        <h1>Welcome to</h1>
+        <h1>ToDo-ti-fruity!</h1>
+        <br></br>
         <p>Please Login</p>
 
         <label>

@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux'
-import todo from '../components/todo'
 
 const defaultState = {
     user: null,
-    todos: [] 
+    todos: [],
+    filteredTodos: [],
+    todoFilter: 'all'
 }
 
 const userReducer = ( state = defaultState, action) => {
-  // console.log("reducer", action.type, action.payload)
   switch (action.type) {
     case "handleLogin":
       if (!action.payload.token){
@@ -38,15 +38,54 @@ const todoReducer = ( state = defaultState, action) => {
         }
         return todo
       })
-      return {...state, todos: newCompletedTodos}
+    return {...state, todos: newCompletedTodos}
     default:
       return state
   }
 }
 
+// const filteredTodosReducer = ( state = defaultState.filteredTodos, action) => {
+//   switch (action.type) {
+//     case "filterTodos":
+//       switch (state.todoFilter) {
+//         case "complete":
+//           let completeFilter = [{...state.todos.filter(todo => todo.completed === true)}]
+//           return {...state, filteredTodos: completeFilter}
+//         case "incomplete":
+//           let incompleteFilter = [{...state.todos.filter(todo => todo.completed === false)}]
+//           return {...state, filteredTodos: incompleteFilter}
+//         case "all":
+//           console.log("INSIDE FILTER TODOS ALL")
+//           return {...state, filteredTodos: state.todos}
+//     }
+//     default:
+//       return state
+//   }
+// }
+
+const filterReducer = ( state = defaultState, action) => {
+  switch(action.type){
+    case "updateFilter":
+      switch(action.payload) {
+        case "complete":
+          return {...state, todoFilter: action.payload}
+        case "incomplete":
+          return {...state, todoFilter: action.payload}
+        case "all":
+          return {...state, todoFilter: action.payload}
+    }
+    default:
+      return state
+  }
+}
+
+
+
 const rootReducer = combineReducers({
     user: userReducer,
-    todos: todoReducer
+    todos: todoReducer,
+    // filteredTodos: filteredTodosReducer,
+    todoFilter: filterReducer
 })
 
 export default rootReducer

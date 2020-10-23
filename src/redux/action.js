@@ -53,7 +53,7 @@ export const deleteTodo = (todoID) => {
     fetch(`https://api-nodejs-todolist.herokuapp.com/task/${todoID}`, {
       method: "DELETE", 
       header: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
         'Authorization': `Bearer ${localStorage.token}`
       }
     })
@@ -78,3 +78,7 @@ export const completeTodo = (todoID) => {
     dispatch({ type: "completeTodo", payload: todoID})
   }
 }
+
+// export const filterTodos = (filter) => {
+//   console.log("FILTER: ", filter)
+// }
