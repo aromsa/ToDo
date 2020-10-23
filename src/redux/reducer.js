@@ -3,7 +3,6 @@ import { combineReducers } from 'redux'
 const defaultState = {
     user: null,
     todos: [],
-    filteredTodos: [],
     todoFilter: 'all'
 }
 
@@ -44,25 +43,6 @@ const todoReducer = ( state = defaultState, action) => {
   }
 }
 
-// const filteredTodosReducer = ( state = defaultState.filteredTodos, action) => {
-//   switch (action.type) {
-//     case "filterTodos":
-//       switch (state.todoFilter) {
-//         case "complete":
-//           let completeFilter = [{...state.todos.filter(todo => todo.completed === true)}]
-//           return {...state, filteredTodos: completeFilter}
-//         case "incomplete":
-//           let incompleteFilter = [{...state.todos.filter(todo => todo.completed === false)}]
-//           return {...state, filteredTodos: incompleteFilter}
-//         case "all":
-//           console.log("INSIDE FILTER TODOS ALL")
-//           return {...state, filteredTodos: state.todos}
-//     }
-//     default:
-//       return state
-//   }
-// }
-
 const filterReducer = ( state = defaultState, action) => {
   switch(action.type){
     case "updateFilter":
@@ -79,12 +59,9 @@ const filterReducer = ( state = defaultState, action) => {
   }
 }
 
-
-
 const rootReducer = combineReducers({
     user: userReducer,
     todos: todoReducer,
-    // filteredTodos: filteredTodosReducer,
     todoFilter: filterReducer
 })
 

@@ -49,7 +49,6 @@ export const newTodo = (todoObj) => {
 
 export const deleteTodo = (todoID) => {
   return function (dispatch) {
-    // THIS IS NOT PERSISTING. ERROR READS UNAUTHORIZED
     fetch(`https://api-nodejs-todolist.herokuapp.com/task/${todoID}`, {
       method: "DELETE", 
       header: {
@@ -63,7 +62,6 @@ export const deleteTodo = (todoID) => {
 
 export const completeTodo = (todoID) => {
   return function (dispatch) {
-    // THIS IS NOT PERSISTING. ERROR READS UNAUTHORIZED
     fetch(`https://api-nodejs-todolist.herokuapp.com/task/${todoID}`, {
       method: "PUT", 
       header: {
@@ -74,11 +72,6 @@ export const completeTodo = (todoID) => {
         "completed": true
       })
     })
-    // .then(r => r.json())
     dispatch({ type: "completeTodo", payload: todoID})
   }
 }
-
-// export const filterTodos = (filter) => {
-//   console.log("FILTER: ", filter)
-// }

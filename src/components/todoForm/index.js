@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { newTodo } from "./../../redux/action";
-
-// import './styles.scss'
 
 const Form = (props) => {
 
@@ -29,11 +27,10 @@ const Form = (props) => {
 
   const filterHandler = (e) => {
     props.updateFilter(e.target.value)
-    // props.filterTodos(e.target.value)
   }
 
   return(
-    <form className="input-form" onSubmit={addTodo}>
+    <form data-test="formComponent" className="input-form" onSubmit={addTodo}>
       <input type="text" className="todo-input" onChange={inputHandler} value={input}/>
       <button className="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>
@@ -53,7 +50,6 @@ const Form = (props) => {
 const mdp = (dispatch) => {
   return { 
     newTodo: (todo) => dispatch(newTodo(todo)), 
-    filterTodos: (filter) => dispatch({type: "filterTodos", payload: filter}), 
     updateFilter: (filter) => dispatch({type: "updateFilter", payload: filter})}
 }
 

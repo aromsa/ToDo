@@ -42,7 +42,7 @@ const Login = (props) => {
   }
 
   return(
-    <div className="login">
+    <div data-test="loginComponent" className="login">
       <form className="form-body" onSubmit={handleLogin}>
 
         <h1>Welcome to</h1>
